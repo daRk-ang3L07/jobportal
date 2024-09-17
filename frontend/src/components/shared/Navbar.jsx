@@ -147,7 +147,7 @@ const Navbar = () => {
 
             {/* Profile Section */}
             <div className="flex items-center gap-4 mb-6">
-              <Avatar className="border border-gray-900 cursor-pointer">
+              <Avatar onClick={()=>navigate("/profile")} className="border border-gray-900 cursor-pointer">
                 <AvatarImage src={user?.profile?.profilePhoto} />
               </Avatar>
               <div>
