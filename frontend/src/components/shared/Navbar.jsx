@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { LogOut, Menu, X } from "lucide-react";
+import { LogOut, Menu, User2, X } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { USER_API_END_POINT } from "../../utils/constant";
@@ -116,7 +116,7 @@ const Navbar = () => {
                   <div className="flex flex-col my-2 text-gray-600">
                     {user && user.role === "student" && (
                       <div className="flex w-fit items-center gap-2 cursor-pointer">
-                        <Button variant="link">
+                        <Button variant="link"><User2/>
                           <Link to="/profile">View Profile</Link>
                         </Button>
                       </div>
