@@ -32,7 +32,7 @@ const Jobs = () => {
         <div className="flex flex-col sm:flex-row gap-5 relative">
           {/* Filter button for mobile */}
           <button
-            className="fixed bottom-5 right-5 sm:hidden p-3 bg-blue-500 text-white rounded-full shadow-md"
+            className={`fixed bottom-5 right-5 p-3 bg-blue-500 text-white rounded-full shadow-md sm:hidden ${isFilterOpen ? 'hidden' : 'block'}`}
             onClick={() => setIsFilterOpen(true)}
           >
             Filter
@@ -51,8 +51,8 @@ const Jobs = () => {
             </div>
           )}
 
-          <div className={`w-full ${isFilterOpen ? "sm:w-0" : "sm:w-1/4"} transition-width duration-300`}>
-            {!isFilterOpen && <FilterCard />}
+          <div className={`w-full ${isFilterOpen ? "hidden" : "sm:w-1/4"} transition-width duration-300`}>
+            <FilterCard />
           </div>
 
           {filterJobs.length === 0 ? (
