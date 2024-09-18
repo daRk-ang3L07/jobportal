@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 const Jobs = () => {
   const { allJobs, searchedQuery } = useSelector((store) => store.job);
   const [filterJobs, setFilterJobs] = useState(allJobs);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     if (searchedQuery) {
@@ -28,9 +29,30 @@ const Jobs = () => {
     <div>
       <Navbar />
       <div className="max-w-7xl mx-auto mt-5 px-4 sm:px-6">
-        <div className="flex flex-col sm:flex-row gap-5">
-          <div className="w-full sm:w-1/4">
-            <FilterCard />
+        <div className="flex flex-col sm:flex-row gap-5 relative">
+          {/* Filter button for mobile */}
+          <button
+            className="fixed bottom-5 right-5 sm:hidden p-3 bg-blue-500 text-white rounded-full shadow-md"
+            onClick={() => setIsFilterOpen(true)}
+          >
+            Filter
+          </button>
+
+          {/* Full viewport filter pop-up */}
+          {isFilterOpen && (
+            <div className="fixed inset-0 z-50 bg-white shadow-lg p-5 sm:hidden flex flex-col">
+              <button
+                className="self-end text-xl font-bold"
+                onClick={() => setIsFilterOpen(false)}
+              >
+                &times;
+              </button>
+              <FilterCard />
+            </div>
+          )}
+
+          <div className={`w-full ${isFilterOpen ? "sm:w-0" : "sm:w-1/4"} transition-width duration-300`}>
+            {!isFilterOpen && <FilterCard />}
           </div>
 
           {filterJobs.length === 0 ? (
