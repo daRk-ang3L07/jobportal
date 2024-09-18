@@ -29,7 +29,7 @@ const Profile = () => {
               />
             </Avatar>
             <div>
-              <h1 className="font-medium text-lg md:text-xl">{user.name}</h1>
+              <h1 className="font-medium text-lg md:text-xl">{user?.fullname}</h1>
               <p className="text-sm md:text-base">
                {user?.profile?.bio}
               </p>
