@@ -42,11 +42,11 @@ const Profile = () => {
         <div className="my-5">
           <div className="flex items-center gap-3 my-2">
             <Mail />
-            <span className="text-sm md:text-base">Rohan@gmail.com</span>
+            <span className="text-sm md:text-base">{user?.email}</span>
           </div>
           <div className="flex items-center gap-3 my-2">
             <Contact />
-            <span className="text-sm md:text-base">2345678901</span>
+            <span className="text-sm md:text-base">{user.phoneNumber}</span>
           </div>
         </div>
 
